@@ -26,18 +26,9 @@ jobs:
         with:
           path: dist
 
-  dev-env2:
-    name: Promote to Test
-    needs: build
-    runs-on: ubuntu-latest
-    environment: dev-env-2
-    steps:
-      - name: Test gate
-        run: echo "Dev env 2 checks"
-
   test-env:
     name: Secondary Test
-    needs: dev-env2
+    needs: dev-env-1
     runs-on: ubuntu-latest
     environment: test-env
     steps:
